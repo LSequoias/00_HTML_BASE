@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+          user-scalable=no,
+          initial-scale=1.0,
+          maximum-scale=1.0,
+          minimum-scale=1.0"
+    >
+    <meta name="description" content="faire un texte de présentation pour la page, ce texte doit avoir entre 125 à 250
+    caractères aux maximum. Cette description aide aux référencement du site. (SEO)"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script defer src="assets/js/app.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>HTML - Exemple I</title>
+</head>
+
+<body class="wrap">
+    <section class="box">
+        <h3 class="title">Sémantique, sens des balises</h3>
+        <article class="box">
+            <div class="subDescription">
+                <p class="subTitle">
+                    Faire un cours sur HTML et ses principes n'est pas de mon ressort et de nombreuse documentation
+                    vous seront plus utile que ceci. Le but de cette page est de vous montrer que je connais ce langage
+                    afin de validez votre grille.
+                </p>
+                <hr class="divider">
+                <p class="subTitle">
+                    Dans cette partie il y a essentiellement l'HTML et du CSS, un peu de Js pour illustrée un propos.
+                    Comme outil je me sers de <a class="link" href="https://carbon.now.sh/" rel="nofollow" target="_blank">Carbon</a>,
+                    générateur de snippet pour le code, sa évite de se tapper 30 minutes de mise en page avec des Entitées HTML.
+                </p>
+                <hr class="divider">
+                <p class="subTitle">
+                    Comme navigateur, même si aux fond on s'en fou c'est
+                    <a href="https://www.mozilla.org/fr/firefox/developer/" rel="nofollow" target="_blank" class="link">Firefox Dev </a>
+                    . Navigateur polyvalent, mais conçue exclusivement pour développer le front.
+                </p>
+                <hr class="divider">
+                <p class="subTitle">
+                    Enfin les dires, les explications viennent naturellement de moi, de ce que j'ai compris avec le temps. La mise
+                    en page est sommaire, je ne cherche pas à vendre un truck simplement à vous rendre la lecture moins rigide aux possibles.
+                </p>
+            </div>
+            <figure class="box_media subDescription">
+                <img class="fluid" src="assets/img/00.png" alt="la sémantique HTML" title="un exemple de la sémantique HTML.">
+            </figure>
+
+            <div class="subDescription">
+
+            <p class="subTitle">
+                Une page Web se divise aux moins en deux partie, le Head contenant les metadonnées et liens utile en relation avec la
+                page courante. Et le Body, le corps de la page: Où l'ont y grefferas le contenu de notre site.
+            </p>
+                <div class="subDescription">
+                    <P class="paragraph">
+                        <code>&lt;!doctype html&gt;</code> est une norme propre au DOM HTML, c'est une convention de nommage.
+                    </P>
+                    <P class="paragraph">
+                        <code>&lt;html lang="fr"&gt;</code> ouvre le début de notre mise en page avec les balises HTML, cette balise s'ouvre
+                        en début de site et se referme à la fin du site. L'attribut lang indique au navigateur la langue choisie,
+                        ceci ne signifie pas que le navigateur effectue automatiquement une traduction mais, mais permet au navigateur
+                        de charger en conséquence les applets nécessaire et disponible du site s'il le dispose.
+                    </P>
+
+                    <p class="paragraph">
+                        <code>&lt;meta charset="UTF-8"&gt;</code> est une métadonnée d'encodage. En France, ou en Europe donc la racine
+                        latine nous impose cette norme d'encodage pour que nos machines puissent être comprises. Autre exemple en Chine,
+                        l'encodage liée au mandarin devrait être un ISO plutôt qu'une norme UTF-8.
+                    </p>
+
+                    <p class="paragraph">
+                        <code>&lt;meta name="viewport" content="width..scale"&gt;</code> Cette metadonnée sert à définir la largeur
+                        initial lorsque le site est sur un portable. C'est une métadonnée comportemental, elle fonctionne uniquement si
+                        la largeur est en dessous de 576px.
+                    </p>
+
+                    <p class="paragraph">
+                        <code>&lt;meta http-equiv="X-UA-Compatible"&gt;</code> Cette metadonnée sert à chargée un polyfill si besoin.
+                    </p>
+                </div>
+
+
+                <p class="subTitle">
+                    Pour les scripts et les links ces particuliers, se ne sont pas des métadonnées proprement parlées.
+                    Ont peu les placer dans le Head comme dans le body.
+                </p>
+                <hr class="divider">
+                <p class="subTitle">
+                    En premier temps dans le Head ont place le script en ordre de priorité, suivit des links.
+                    Les CDN passent toujours en premier, suivit des scripts/link appartenant à des dépendances comme des Frameworks ou
+                    des librairies. Enfin vient les scripts/links dit local, c'est à dire les votre. Sans ça, certaines ressources ne peuvent
+                    ne pas être accessible.
+                </p>
+                <div class="subDescription">
+                    <p class="paragraph">
+                        <code>&lt;script defer src="assets/js/app.js"&gt;&lt;/script&gt;</code>
+                        En principe les scripts attende que le DOM se charge pour exécuter et donc habituellement les gens place
+                        leur script dans le body, toute a la fin. l'attribut defer permet d'éviter cette contrainte.
+                    </p>
+                    <p class="paragraph">
+                        <code>&lt;link rel="stylesheet" href="https://cdn...." integrity="sha384-Boqy..." crossorigin="anonymous"&gt;</code>
+                        Ce link est un CDN, c'est à dire qu'il charge une ressource externe au site dont il as besoin pour fonctionner.
+                        Les CDN comporte tout de même des inconvénients, si le serveur externe tombe, la ressource devient inaccessible.
+                        Les CDN sont énergivores sur le plan écologique comme sur le plan performance.
+                        Enfin les CDN permette malgrès tout un meilleur référencement. integrity est l'attribut qui génère un hash, une sorte de clé
+                        SSH propre au framework ou à la librairie charger,  ce n'est pas le job du developper de s'en occupée mais plutôt celui
+                        du devops. Crossorigin, indique que le CORS doit se comportée en anonyme pour les ressouces tiers/inconnue au projet.
+                    </p>
+                    <p class="paragraph">
+                        <code>&lt;link rel="stylesheet" href="./assets/css/styles.css"&gt;</code>
+                        Ce link est une feuille de style charger depuis notre projet, en local donc. Par ce fait sa priorité est moindre.
+                    </p>
+                    <p class="paragraph">
+                        <code>&lt;title&gt;Bienvenue sur mon site&lt;/title&gt;</code>
+                        Dernière balise considérée comme une meta, le titre de la page. Sert au SEO et à indexée la page web.
+                    </p>
+                </div>
+                <p class="subTitle">
+                    As présent un peu entamer la large partie des balises HTML, je vais évitée l'exotique comme
+                    <code>&lt;code&gt;</code> ou <code>&lt;i&gt;</code> non pas que c'est ininterressant mais plus pour leurs
+                    manque de pertinences.
+                </p>
+                <hr class="divider">
+                <p class="subTitle">
+                    La balise <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code> et <code>&lt;footer&gt;</code>
+                </p>
+                <p class="subTitle">
+                    Ce sont des balises de découpage, classiquement ont aimerais séparée le contenue de notre site,
+                    <code>&lt;header&gt;</code> est conçue pour plaçée une bannière web, un logo d'un site, une navigation aussi
+                    appeler Navbar ou encore un fil arianne. Bien sûr faire autrement n'empèche pas le fonctionnement d'une page,
+                    mais selon W3C c'est relativement conseiller de procédé comme ça, gardons ça en tête.
+                </p>
+                <p class="subTitle">
+                    <code>&lt;main&gt;</code> est une balise abstraite pour un développeur classique en revanche pour une personne
+                    se souciant des normes WAI-ARIA, la balise <code>&lt;main role="main"&gt;</code> est importante. Elle indique le
+                    contenue principal de la page.
+                </p>
+                <figure class="box_media subDescription">
+                    <img class="fluid" src="assets/img/01.png" alt="la sémantique main" title="une balise main.">
+                </figure>
+                <p class="subTitle">
+                    <code>&lt;footer&gt;</code> comme ces autres balises restes optionnelles. Le role de <code>&lt;footer&gt;</code>
+                    est de définir le pieds de page du site, ont y retrouvera dans le <code>&lt;footer&gt;</code> souvent les liens
+                    en relation de près ou de loins au site. Le plan du site par exemple, mais aussi les partenarias. Les CGU, les copyRight
+                    et j'en passe.
+                </p>
+                <figure class="box_media subDescription">
+                    <img class="fluid" src="assets/img/02.png" alt="la sémantique de séparation" title="header, main, footer.">
+                </figure>
+                <hr class="divider">
+                <p class="subTitle">
+                    La balise <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> et <code>&lt;aside&gt;</code>
+                </p>
+                <p class="subTitle">
+                    Les balises <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> et <code>&lt;aside&gt;</code>
+                     ont également comme rôle de découper votre site en plusieurs parties sous-jacent. Bien qu'il n' y as pas
+                    d'ordre logique établie, ont en conviendras qu'une balise <code>&lt;article&gt;</code> est souvent précédée
+                    d'une balise <code>&lt;section&gt;</code> mais l'inverse fonctionne aussi selon le sens que vous lui apportez.
+                </p>
+                <p class="subTitle">
+                    <code>&lt;aside&gt;</code> à pour rôle d'être un sous article. donc par déduction son parent reste la balise
+                    <code>&lt;article&gt;</code>
+                </p>
+                <figure class="box_media subDescription">
+                    <img class="fluid" src="assets/img/03.png" alt="la sémantique de séparation" title="section, article, aside.">
+                </figure>
+                <hr class="divider">
+                <p class="subTitle">
+                    En conclusion les balises de découpage permette d'agencer correctement votre site librement.
+                    Si la sémantique reste mis à mal avec l'évolution des technologies et l'expensions de framesworks,
+                    gardez à l'esprit que certain client demanderons de suivre à la lettre une certaine convention
+                    comme le WAI-ARIA ou WCAG. Ces convention s'applique majoritairement aux sites public comme le Pôle emplois,
+                    la Caf, les banques, etc.. Les fameux niveau Bronze, Argent et Or que vous trouvez parfois dans le <code>&lt;footer&gt;</code>
+                    de certain site.
+                </p>
+                <p class="subTitle">
+                    Il reste deux dernières balises à dire, le <code>&lt;div&gt;</code> et le <code>&lt;span&gt;</code>
+                </p>
+                <p class="subTitle">
+                    <code>&lt;div&gt;</code> et le <code>&lt;span&gt;</code> sont des balises neutres, sans sens appliqué par
+                    défaut. La balise <code>&lt;div&gt;</code> est dite Block, tandis que <code>&lt;span&gt;</code> est inline.
+                </p>
+                <button class="btn btn-secondary">
+                    <a href="01_base_HTML.html">Suite ?</a>
+                </button>
+            </div>
+        </article>
+    </section>
+</body>
+</html>
