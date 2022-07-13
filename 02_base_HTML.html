@@ -25,18 +25,135 @@
                 <p class="subTitle">
                     <code>&lt;form&gt;</code>, <code>&lt;legend&gt;</code>, <code>&lt;fieldset&gt;</code> et <code>&lt;button&gt;</code>
                 </p>
-                <hr class="divider">
+                <p class="subTitle">
+                    Pour générée un formulaire ont utilisent la balise <code>&lt;form&gt;</code>. Les <code>&lt;form&gt;</code> constitue
+                    un bon 80% en développement que ce soit pour une inscription ou pour crées des produits par exemple, leurs utilisations
+                    est courante, si il y as bien une balise à la quelle il est difficile de faire l'impasse c'est bien celle ci.
+                </p>
+                <p class="subTitle">
+                    Un formulaire à sa propre bordure attitrée, pour sa il faut placer une balise <code>&lt;fieldset&gt;</code> à
+                    l'intérieur de <code>&lt;form&gt;</code>. Cette bordure est personnalisable via le CSS au besoin, elle ne constitue
+                    pas un élément majeur du formulaire et il peu fonctionner bien sans
+                </p>
+                <p class="subTitle">
+                    Comme son nom l'indique, <code>&lt;legend&gt;</code> permet de placer une legende au formulaire, considérée la legende
+                    comme un titre appartenant au formulaire.
+                </p>
+                <p class="subTitle">
+                    Un formulaire à comme utilité d'envoyez quelque chose, une donnée ou plusieurs jeu de donnée au serveur. Pour se
+                    faire il nous faut le <code>&lt;button&gt;</code> pour envoyez les données. Le bouton peu se placer à l'interieur du formulaire
+                    comme à l'extérieur selon vos besoins et il peut être remplacer par un <code>&lt;input&gt;</code> également.
+                </p>
+                <figure class="box_media subDescription">
+                    <img class="fluid" src="assets/img/09.png"
+                         alt="exemple d'une base de formulaire html"
+                         title="exemple d'une base de formulaire html">
+                </figure>
+                <p class="subTitle">
+                    Pour fonctionner correctement, un formulaire réclame certain paramètre selon vos projets.
+                </p>
+                <div class="subDescription">
+                    <P class="paragraph">
+                        <code>&lt;form action="/signup"&gt;</code>
+                        L'attribut action détermine où les informations vont être traitée, la valeur dépend de votre
+                        architecture de projet, si l'on part du principe que nous restons en JavaScript natif et que nous
+                        simulons l'envoit de donnée via une base de données factice, alors la valeur seras une page. Sous
+                        Laravel, framework PHP la valeur seras une route, route gérée par un middleware, et ce Middleware
+                        appelera une fonction derrière pour traité les données.
+                    </P>
+                    <P class="paragraph">
+                        <code>&lt;form action="/signup" method="post"&gt;</code>
+                        L'attribut method réclame une valeur, soit get, soit post. Ces valeurs sont des méthodes d'envois, l'une
+                        fait transitez les données via l'url du navigateur (get) tandis que l'autre mélange le tout et l'envois directement au
+                        serveur pour son traitement (post). La valeur get est dépréciez car si les données sont visibles via l'url,
+                        alors elles peuvent être aisément modifié par n'importe qui. Autre problématique, la valeur get ne permet
+                        pas d'envoyez des données conséquentes, celle-ci sont bridée à 250 caractères max de souvenir. Ces valeurs sont des
+                        protocols HTTP, une subtilité qui aura sont importances plus tard mais pas ici. Gardez à d'esprits que GET transite les
+                        données via l'url, donc visible pour la partie cliente, et que post diffuse ces données via un corps cotée serveur non
+                        visible par le client (sauf avec un peu de connaissances et si les data ne sont pas hasher correctement).
+                    </P>
+                    <P class="paragraph">
+                        <code>&lt;form action="/signup" method="post" enctype="multipart/form-data"&gt;</code>
+                        L'attribut enctype définit le format général des données. La valeur multipart/form-data spécifie
+                        que des données peuvent être aussi de format jpg, png, bitmap pour les images et même un ensemble de fichier.
+                    </P>
+                </div>
+                <p class="subTitle">
+                    Enfin dans le contexte que nous faisont un formulaire en JS, le <code>&lt;button&gt;</code> à besoin d'au moins
+                    une information, un ID. Cette ID pourras être utilisée cotée serveur pour enclencher une CallBack addEventListener.
+                </p>
+                <hr class="divider">s
                 <p class="subTitle">
                     <code>&lt;label&gt;</code> et <code>&lt;input&gt;</code>
                 </p>
+                <p class="subTitle">
+                    <code>&lt;label&gt;</code> est le nom qui doit être associer à son <code>&lt;input&gt;</code>
+                </p>
+                <p class="subTitle">
+                    <code>&lt;input&gt;</code> est un champ de formulaire, les champs de formulaire permette à l'utilisateur
+                    de saisir des informations principalement. Ces champs peuvent avoir plusieurs rôles, certain sont conçue
+                    pour acquérir des données en chaine de caractères, d'autre sont conçue pour les emails, les numeros de téléphones
+                     ou encore de mot de passes. Ce que la balise <code>&lt;input&gt;</code> traite est déterminé par son attribut type,
+                    cette balise à besoin également d'un autre attribut, l'id. L'Id permet de gérer la donnée cotée serveurs pour
+                    le cas du JavaScript, en php l'attribut qui repère la donnée est name. Enfin l'id doit être associé à un label.
+                </p>
+                <figure class="box_media subDescription">
+                    <img class="fluid" src="assets/img/10.png"
+                         alt="exemple d'un formulaire d'inscription"
+                         title="exemple d'un formulaire d'inscription">
+                </figure>
+                <p class="subTitle">
+                    L'attribut placeholder permet d'inscrire une définition à l'intérieur de <code>&lt;input&gt;</code>, cette
+                    définition s'efface automatiquement dès lors que l'utilisateur saisie une information dans le champ en question.
+                    Ceci n'est pas obligatoire mais, permet de guidée l'utilisateur dans la donnée qu'il doit saisir, il est donc
+                    conseillez de faire ceci, au cas échéant il faudra placer les balises comme ceci (voir ci-dessous)
+                </p>
+                <figure class="box_media subDescription">
+                    <img class="fluid" src="assets/img/11.png"
+                         alt="exemple d'un autre formulaire d'inscription"
+                         title="exemple d'un autre formulaire d'inscription">
+                </figure>
+                <p class="subTitle">
+                    <code>&lt;br&gt;</code> permet de faire un saut de ligne, déconseillez hors code sandbox passez plutôt via le CSS.
+                </p>
                 <hr class="divider">
+
                 <p class="subTitle">
                     <code>&lt;select&gt;</code>, <code>&lt;optgroup&gt;</code> et <code>&lt;options&gt;</code>
                 </p>
+                <p class="subTitle">
+                    <code>&lt;select&gt;</code> permet de faire des listes déroulantes, <code>&lt;optgroup&gt;</code> permet de gérée des
+                    groupes parmi cette liste déroulante et <code>&lt;options&gt;</code> constitue les valeurs appartenant à <code>&lt;optgroup&gt;</code>
+                </p>
+                <figure class="box_media subDescription">
+                    <img class="fluid" src="assets/img/12.png"
+                         alt="exemple d'une liste déroulante."
+                         title="exemple d'une liste déroulante.">
+                </figure>
+                <p class="subTitle">
+                    Il n'est pas nécessaire de placer une liste déroulante dans un formulaire sauf si vous avez besoin de charger
+                    un jeu de données dynamiquement pour vos champs <code>&lt;options&gt;</code> comme montrer avec leurs valeurs.
+                </p>
+                <p class="subTitle">
+                    Enfin si l'aspect pratique est là pour cette balise, elle constitue un problème pour l'accessibilité car
+                    aucun role ne peut être y attribuée.
+                </p>
                 <hr class="divider">
+                <p class="subTitle">
+                    Voila pour HTML, j'aurais pu évoquer aussi les balises <code>&lt;textarea&gt;</code> pour gérée un commentaire,
+                    <code>&lt;audio&gt;</code> pour la lecture de média ou encore l'étrange <code>&lt;noscript&gt;</code> qui bloque
+                    comme son nom l'indique le JavaScript. Mais j'ai fait dans les grandes lignes, le but étais de montrer que
+                    je connais le fonctionnement de l'HTML globalement sans pour autant être un expert en la matière.
+                </p>
+                <hr class="divider">
+                <button class="btn btn-secondary">
+                    <a href="03_base_HTML.html">Conclusion ?</a>
+                </button>
             </div>
         </article>
     </section>
-
 </body>
 </html>
+
+
+
